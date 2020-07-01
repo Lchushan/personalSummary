@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>路由设置</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/router.css">
+</head>
+
+<body>
+  <div class="router">
+    <div class="header">
+      路由设置
+    </div>
+    <ul>
+      <li>路由是什么，其实就是引路人</li>
+      <li></li>
+    </ul>
+    <div class="box">
+      <textarea cols="30" rows="10" style="height: 320px;">
+        function Router(){ }
+  
+        Router.prototype.setup = function(routemap, defaultFunc){
+                var that = this, 
+                      rule, 
+                      func;
+               
+                this.routemap = [];
+                
+                this.defaultFunc = defaultFunc;
+             
+                for (var rule in routemap) {
+                    if (!routemap.hasOwnProperty(rule)) continue;
+                    that.routemap.push({
+                        rule: new RegExp(rule, 'i'),
+                        func: routemap[rule]
+                    });             
+                }
+            };
+      </textarea>
+    </div>
+  </div>
+
+
+
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+</body>
+
+</html>

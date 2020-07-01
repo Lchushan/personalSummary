@@ -1,0 +1,43 @@
+.header {
+  height: 65px;
+  background-color: #001938;
+  color: #fff;
+}
+.header ul {
+  margin-left: 220px;
+  height: 100%;
+}
+.header li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  cursor: pointer;
+}
+.header li:hover {
+  color: #ccc;
+}
+.main {
+  height: calc(100vh - 65px);
+}
+.main .leftMain {
+  height: 100%;
+  width: 220px;
+  border-right: 1px solid #f1f1f1;
+}
+.main .leftMain ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  height: 40px;
+  cursor: pointer;
+}
+.main .leftMain ul li:hover {
+  color: #5cc595;
+}
+.main .rightMain {
+  height: 100%;
+  width: calc(100vw - 220px);
+}

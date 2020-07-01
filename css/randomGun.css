@@ -1,0 +1,26 @@
+.randomGun {
+  padding: 20px;
+}
+.randomGun ul.box {
+  height: 600px;
+  width: 600px;
+  background-color: violet;
+  display: flex;
+  flex-wrap: wrap;
+}
+.randomGun ul.box li {
+  border: 2px solid violet;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: wheat;
+}
+.randomGun ul.box li.bgcG {
+  background-color: goldenrod;
+}
+.randomGun ul.box li.box9 {
+  background-color: salmon;
+  cursor: pointer;
+}

@@ -1,0 +1,11 @@
+/* flex布局开始 */
+.disflex {
+  display: flex;
+}
+.flexjc {
+  justify-content: center;
+}
+.flexac {
+  align-items: center;
+}
+/* flex布局结束 */

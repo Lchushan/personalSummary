@@ -1,0 +1,14 @@
+.box {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+}
+
+.imgBox {
+  flex: 0 0 25%;
+  border: 1px solid #ccc;
+}
+
+img {
+  width: 100%;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>知识汇总</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/packaging.css">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body style="font-size: 16px;">
+  <div class="header">
+    <ul class="disflex flexac">
+      <li> js </li>
+      <li> 配置 </li>
+    </ul>
+  </div>
+  <div class="main disflex">
+    <div class="leftMain">
+      <ul>
+        <li><a href="#/shipei">PC适配单位rem设置</a></li>
+        <li><a href="#/router">路由设置</a></li>
+        <li><a href="#/randomGun">随机转盘</a></li>
+      </ul>
+    </div>
+    <div class="rightMain">
+      <div>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="./router/index.js"></script>
+<script src="./router/text.js"></script>
+<script src="./router/index.js"></script>
+<script src="./js/index.js"></script>
+<script>
+  index.init()
+</script>
+
+<script>
+  // rem单位与px单位的转化
+  function wfontS() {
+    // if (window.innerWidth < 1460) return;
+
+    let designSize = 1920; // 设计图尺寸
+
+    let html = document.documentElement;
+
+    let wW = html.clientWidth;// 窗口宽度
+    // console.log(wW)
+    let rem = wW * 100 / designSize;
+    document.documentElement.style.fontSize = rem + 'px';
+  }
+
+  $(window).resize(wfontS());
+  wfontS()
+</script>
+
+</html>
