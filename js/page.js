@@ -107,7 +107,7 @@
 
         obj.on("click", "a.tcdNumber", function () {
           var current = parseInt($(this).text());
-          ms.fillHtml(obj, { "current": current, "pageCount": args.pageCount, "total": args.total });
+          ms.fillHtml(obj, { "current": current, "pageCount": args.pageCount, "total": args.total, 'isSkip': args.isSkip });
           if (typeof (args.backFn) == "function") {
             args.backFn(current);
           }
@@ -120,7 +120,7 @@
             if ($(this).siblings("span.current").text()) {
               ms.pages = parseInt($(this).siblings("span.current").text()) - 1
             }
-            ms.fillHtml(obj, { "current": current, "pageCount": args.pageCount, "total": args.total });
+            ms.fillHtml(obj, { "current": current, "pageCount": args.pageCount, "total": args.total, 'isSkip': args.isSkip });
             if (typeof (args.backFn) == "function") {
               args.backFn(current);
             }
@@ -134,7 +134,7 @@
             if ($(this).siblings("span.current").text()) {
               ms.pages = parseInt($(this).siblings("span.current").text()) + 1
             }
-            ms.fillHtml(obj, { "current": current, "pageCount": args.pageCount, "total": args.total });
+            ms.fillHtml(obj, { "current": current, "pageCount": args.pageCount, "total": args.total, 'isSkip': args.isSkip });
             if (typeof (args.backFn) == "function") {
               args.backFn(current);
             }
@@ -148,7 +148,7 @@
             if (parseInt($(this).siblings('input#numPage').val())) {
               ms.pages = parseInt($(this).siblings('input#numPage').val())
             }
-            ms.fillHtml(obj, { "current": current, "pageCount": args.pageCount, "total": args.total });
+            ms.fillHtml(obj, { "current": current, "pageCount": args.pageCount, "total": args.total, 'isSkip': args.isSkip });
             if (typeof (args.backFn) == "function") {
               args.backFn(current);
             }
