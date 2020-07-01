@@ -4,33 +4,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>适配设置</title>
+  <title>rem适配设置</title>
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/shipei.css">
 </head>
 
-<body style="font-size: .16rem;">
-  <ul class="head">
-    <li>首页</li>
-    <li>搜索</li>
-    <li>个人中心</li>
-  </ul>
-  <div class="box">
-    <div class="imgBox">
-      <img src="../img/01.jpg" alt="">
-    </div>
-
-    <div class="imgBox">
-      <img src="../img/07.jpg" alt="">
-    </div>
-
-    <div class="imgBox">
-      <img src="../img/09.jpg" alt="">
-    </div>
-  </div>
+<body>
+  <h1 style="font-size: 1.0rem;">效果是否明显</h1>
+  <h2 style="font-size: .8rem;">效果是否明显</h2>
+  <h3 style="font-size: .7rem;">效果是否明显</h3>
+  <h4 style="font-size: .6rem;">效果是否明显</h4>
+  <h5 style="font-size: .5rem;">效果是否明显</h5>
+  <h6 style="font-size: .4rem;">效果是否明显</h6>
 
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script>
+    // rem单位与px单位的转化
+    function wfontS() {
+      // if (window.innerWidth < 1460) return;
 
+      let designSize = 1920; // 设计图尺寸
+
+      let html = document.documentElement;
+
+      let wW = html.clientWidth;// 窗口宽度
+      // console.log(wW)
+      let rem = wW * 100 / designSize;
+      document.documentElement.style.fontSize = rem + 'px';
+    }
+
+    $(window).resize(wfontS());
+    wfontS()
+  </script>
 </body>
 
 </html>

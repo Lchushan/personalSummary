@@ -11,41 +11,50 @@
 
 <body>
   <div class="router">
-    <div class="header">
-      路由设置
-    </div>
     <ul>
-      <li>路由是什么，其实就是引路人</li>
-      <li></li>
+      <li><a href="#/">turn white</a></li>
+      <li><a href="#/blue">turn blue</a></li>
+      <li><a href="#/green">turn green</a></li>
     </ul>
-    <div class="box">
-      <textarea cols="30" rows="10" style="height: 320px;">
-        function Router(){ }
-  
-        Router.prototype.setup = function(routemap, defaultFunc){
-                var that = this, 
-                      rule, 
-                      func;
-               
-                this.routemap = [];
-                
-                this.defaultFunc = defaultFunc;
-             
-                for (var rule in routemap) {
-                    if (!routemap.hasOwnProperty(rule)) continue;
-                    that.routemap.push({
-                        rule: new RegExp(rule, 'i'),
-                        func: routemap[rule]
-                    });             
-                }
-            };
-      </textarea>
-    </div>
+
   </div>
 
+  <script>
+    function Router() {
+      this.routes = {};
+      this.currentUrl = '';
+    }
+    Router.prototype.route = function (path, callback) {
+      this.routes[path] = callback || function () { };
+    };
+    Router.prototype.refresh = function () {
+      this.currentUrl = location.hash.slice(1) || '/';
+      this.routes[this.currentUrl]();
+    };
+    Router.prototype.init = function () {
+      window.addEventListener('load', this.refresh.bind(this), false);
+      window.addEventListener('hashchange', this.refresh.bind(this), false);
+    }
+    window.Router = new Router();
+    window.Router.init();
+  </script>
 
-
-  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script>
+    var content = document.querySelector('body');
+    // change Page anything
+    function changeBgColor(color) {
+      content.style.backgroundColor = color;
+    }
+    Router.route('/', function () {
+      changeBgColor('white');
+    });
+    Router.route('/blue', function () {
+      changeBgColor('blue');
+    });
+    Router.route('/green', function () {
+      changeBgColor('green');
+    });
+  </script>
 
 </body>
 

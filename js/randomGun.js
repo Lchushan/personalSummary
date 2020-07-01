@@ -18,7 +18,7 @@ var randomGun = {
   },
   timerGame: function () {
     $('ul.box li').removeClass('bgcG') //取消选中
-    //random_num = parseInt($("#txtnum").val());//
+    //random_num = parseInt($("#txtnum").val());// 作弊
     randomGun.random_num = Math.floor(Math.random() * 7 + 1); //产出随机中奖数2--8之间
     console.log(randomGun.random_num)
     randomGun.index = 1; //再来一次,从1开始
@@ -94,63 +94,6 @@ var randomGun = {
         clearTimeout(timers);
       }
     }, 1000)
-  },
-  star: function () {
-    //跑马灯变速
-    if (flag == false) {
-      if (quick == 5) {
-        // 走五个开始加速
-        clearInterval(Time)
-        Speed = 50
-        Time = setInterval(star, Speed)
-      }
-      // 跑N圈减速
-      if (cycle == endCycle + 1 && index - 1 == endIndex) {
-        clearInterval(Time)
-        Speed = 300
-        flag = true // 触发结束
-        Time = setInterval(star, Speed)
-      }
-    }
-
-    if (index > arr_length) {
-      index = 1
-      cycle++
-    }
-
-    //结束转动并选中
-    if (flag == true && index == parseInt(random_num)) {
-      quick = 0
-      clearInterval(Time)
-    }
-
-    $("#random_" + index).addClass('random_current'); //设置当前选中样式
-    if (index > 1)
-      prevIndex = index - 1;
-    else {
-      prevIndex = arr_length;
-    }
-    $("#random_" + prevIndex).removeClass('random_current'); //取消上次选择样式 
-    index++;
-    quick++;
-
-  },
-  StartGame: function () {
-    $("#random_box li").removeClass("random_current"); //取消选中
-    //random_num = parseInt($("#txtnum").val());//
-    random_num = Math.floor(Math.random() * 13 + 2); //产出随机中奖数2--12之间
-    index = 1; //再来一次,从1开始
-    cycle = 0;
-    flag = false;
-    //EndIndex=Math.floor(Math.random()*12);
-    if (random_num > 5) {
-      EndIndex = random_num - 5; //前5格开始变慢
-    } else {
-      EndIndex = random_num + 14 - 5; //前5格开始变慢
-    }
-    //EndCycle=Math.floor(Math.random()*3);
-    Time = setInterval(Star, Speed);
-
   },
   init: function () {
     // 1.1点击抽奖按钮
