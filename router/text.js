@@ -8,6 +8,9 @@ const routers = [{
 }, {
   name: 'randomGun',
   component: 'randomGun',
+}, {
+  name: 'page',
+  component: 'page',
 }]
 
 // 获取绝对路径

@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>分页设置</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/page.css">
 </head>
+
 <body>
-  
+  <div class="page">
+    <div class="one">
+      <div class="tcdPageCode"></div>
+    </div>
+    <div class="two">
+      <div class="tcdPageCode"></div>
+    </div>
+    <div class="three">
+      <div class="tcdPageCode"></div>
+    </div>
+  </div>
+
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="../js/page.js"></script>
+  <script>
+    $(".one .tcdPageCode").createPage({
+      Pagetotal: 10,
+      pageCount: 20,
+      current: 1,
+    });
+
+    $(".two .tcdPageCode").createPage({
+      pageCount: 20,
+      current: 1,
+    });
+
+    $(".three .tcdPageCode").createPage({
+      pageCount: 20,
+      current: 1,
+      isSkip: false
+    });
+  </script>
+
+
 </body>
+
 </html>

@@ -1,0 +1,107 @@
+.tcdPageCode a,
+.tcdPageCode1 a {
+  text-decoration: none;
+}
+.tcdPageCode a:hover,
+.tcdPageCode1 a:hover {
+  text-decoration: none;
+}
+.tcdPageCode {
+  margin-top: 45px;
+  text-align: center;
+  color: #ccc;
+}
+.tcdPageCode a,
+.tcdPageCode1 a {
+  display: inline-block;
+  color: #373737;
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  margin: 0 2px;
+  /* border-radius: 4px; */
+  vertical-align: middle;
+}
+.tcdPageCode a:hover,
+.tcdPageCode1 a:hover {
+  text-decoration: none;
+  /* border: 1px solid #f5a623; */
+  /* color: #dcebff; */
+  background-color: rgba(22, 118, 254, 0.54);
+  border-color: rgba(22, 118, 254, 0.54);
+  color: #fff;
+}
+.tcdPageCode span.current,
+.tcdPageCode1 span.current {
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 10px;
+  margin: 0 2px;
+  color: #1676fe;
+  /* background-color: #f5a623; */
+  /* border: 1px solid #f5a623; */
+  /* border-radius: 4px; */
+  vertical-align: middle;
+  border: 1px solid #1676fe;
+  background-color: #1676fe;
+  color: #fff;
+}
+.tcdPageCode span.disabledText,
+.tcdPageCode1 span.disabledText {
+  padding: 0 10px;
+  color: #373737;
+  height: 25px;
+  line-height: 25px;
+}
+.tcdPageCode span.disabled,
+.tcdPageCode1 span.disabled {
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 10px;
+  margin: 0 2px;
+  color: #000000;
+  /* background: #f2f2f2; */
+  /* border: 1px solid #bfbfbf; */
+  /* border-radius: 4px; */
+  vertical-align: middle;
+  border: 1px solid #bcbcbc;
+  color: #bcbcbc;
+}
+.tcdPageCode #numPage,
+.tcdPageCode1 #numPage {
+  width: 49px;
+  height: 25px;
+  line-height: 25px;
+  outline: none;
+  border: 1px solid #1676fe;
+  color: #1676fe;
+  border-radius: 5px;
+  text-align: center;
+}
+.tcdPageCode a.toJumpPage,
+.tcdPageCode1 a.toJumpPage {
+  color: #1676fe;
+  border: none;
+  background-color: transparent;
+}
+.mainCon {
+  position: relative;
+}
+.tcdPageCode {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  /* justify-content: flex-end; */
+  justify-content: start;
+  align-items: center;
+}
+.tcdPageCode1 {
+  /* margin-left: -35%;
+   margin-top: 2%;*/
+  margin: 5px auto;
+  text-align: center;
+}
