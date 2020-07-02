@@ -1,0 +1,82 @@
+.countDown {
+  padding: 30px;
+  button {
+    box-shadow:0px 3px 6px rgba(0,0,0,0.16)
+  }
+  button:disabled {
+    background-color: #f3f8fe!important;
+    border-color: #f3f8fe!important;
+    color: #373737!important;
+  }
+  .timeOne {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    .times60S {
+      padding: 0 20px;
+    }
+    .click60S{
+      margin: 0 20px;
+      width: 100px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #1676fe;
+      background-color: #1676fe;
+      border-radius: 5px;
+      color: #fff;
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        font-size: 16px;
+        color: #fff;
+      }
+    }
+    button.clickChang60S  {
+      margin: 0 20px;
+      width: 100px;
+      height: 40px;
+      border: 1px solid #1676fe;
+      background-color: #1676fe;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
+    }
+    .click60S:active,
+    .click60S:active button,
+    .clickChang60S:active {
+      border-color: #3b89f6;
+      background-color: #3b89f6;
+    }
+  }
+
+  .timeTwo {
+    input[type='text'],
+    input[type='number'] {
+      margin: 0 20px;
+      height: 40px;
+      width: 100px;
+      border: 1px solid #000;
+      outline: none;
+      text-align: center;
+      font-size: 16px;
+    }
+    button {
+      margin: 0 20px;
+      width: 100px;
+      height: 40px;
+      border: 1px solid #1676fe;
+      background-color: #1676fe;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
+    }
+  }
+}

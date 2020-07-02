@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>倒计时</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/countDown.css">
 </head>
-<body>
-  倒计时
+
+<body style="font-size: 16px;">
+  <div class="countDown">
+    <div class="timeOne">
+      60S倒计时： <div class="times60S"></div>
+    </div>
+    <div class="timeOne">
+      点击倒计时60S <div class="click60S"><button class="">60</button></div>
+    </div>
+    <div class="timeOne">
+      点击后，不可点击了 <button class="clickChang60S">60</button>
+    </div>
+    <div class="timeOne timeTwo">
+      输入秒数，倒计时 <input type="text"> <button class="clickS">倒计时</button> <span class="clickSText"></span>
+    </div>
+    <div class="timeOne timeTwo">
+      输入分秒，倒计时 <input class="MM" type="text">:<input class="SS" type="text"> <button class="clickSM">倒计时</button> <span
+        class="clickMSText">0</span>
+    </div>
+    <div class="timeOne timeTwo">
+      输入时分秒，倒计时 <input class="HH" type="text">:<input class="HMM" type="text">:<input class="HSS" type="text"> <button
+        class="clickHSM">倒计时</button> <span class="clickHMSText">0</span>
+    </div>
+  </div>
+
+
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="../js/countDown.js"></script>
+  <script>
+    countDown.init()
+  </script>
+
 </body>
+
 </html>
