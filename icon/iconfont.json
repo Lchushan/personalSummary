@@ -1,0 +1,23 @@
+{
+  "id": "1918280",
+  "name": "personal",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5801019",
+      "name": "选中",
+      "font_class": "xuanzhong",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "12987930",
+      "name": "未选中",
+      "font_class": "weixuanzhong",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    }
+  ]
+}

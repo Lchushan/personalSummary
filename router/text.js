@@ -11,16 +11,22 @@ const routers = [{
 }, {
   name: 'page',
   component: 'page',
+}, {
+  name: 'countDown',
+  component: 'countDown',
+}, {
+  name: 'cars',
+  component: 'cars',
 }]
 
-// »ñÈ¡¾ø¶ÔÂ·¾¶
+// è·å–ç»å¯¹è·¯å¾„
 let url = window.location.pathname.split('/')
 let urls = ''
 for (let i = 1; i < url.length - 1; i++) {
   urls += url[i] + '/'
 }
 
-//  Â·ÓÉÎÄ¼şµÄäÖÈ¾
+//  è·¯ç”±æ–‡ä»¶çš„æ¸²æŸ“
 for (let i = 0; i < routers.length; i++) {
   // console.log(routers[i])
   Router.route(`/${routers[i].name}`, function () {

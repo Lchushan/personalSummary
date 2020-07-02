@@ -1,0 +1,19 @@
+.main {
+  padding: 30px;
+}
+.car span.iconfont {
+  font-size: 30px;
+  cursor: pointer;
+}
+.car ul.toChoose li {
+  display: flex;
+  align-items: center;
+}
+.car ul.allChoose {
+  display: flex;
+  align-items: center;
+}
+.car ul.allChoose li {
+  display: flex;
+  align-items: center;
+}
