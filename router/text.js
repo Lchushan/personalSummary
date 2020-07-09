@@ -17,6 +17,12 @@ const routers = [{
 }, {
   name: 'cars',
   component: 'cars',
+}, {
+  name: 'calendar',
+  component: 'calendar',
+}, {
+  name: 'slideshow',
+  component: 'slideshow',
 }]
 
 // 获取绝对路径

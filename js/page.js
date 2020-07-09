@@ -41,9 +41,9 @@
 
 
         if (args.current > 1) {
-          obj.append('<a href="javascript:;" class="toPrevPage">&lt;</a>');
+          obj.append('<a href="javascript:;" class="toPrevPage"><span class="iconfont icon-icon_arrow_left"></span></a>');
         } else {
-          obj.append('<span class="disabled">&lt;</span>');
+          obj.append('<span class="disabled"><span class="iconfont icon-icon_arrow_left"></span></span>');
         }
 
         //中间页码
@@ -84,9 +84,9 @@
         // }
 
         if (args.current < args.pageCount) {
-          obj.append('<a href="javascript:;" class="toNextPage">&gt;</a>');
+          obj.append('<a href="javascript:;" class="toNextPage"><span class="iconfont icon-jiantou"></span></a>');
         } else {
-          obj.append('<span class="disabled">&gt;</span>');
+          obj.append('<span class="disabled"><span class="iconfont icon-jiantou"></span></span>');
         }
 
         // 选择前往的页面
@@ -95,8 +95,6 @@
           obj.append(`<input id="numPage" type="text">`);
           obj.append(`<a href="javascript:;" class="toJumpPage">跳转</a>`);
         }
-
-
 
       })();
     },

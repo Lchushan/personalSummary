@@ -1,0 +1,79 @@
+body > div {
+  margin-top: 20px;
+}
+.slideshow {
+  position: relative;
+  width: 600px;
+  overflow: hidden;
+}
+.slideshow .bigBG {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 300px;
+  background-color: aquamarine;
+  transition: all 0.4s;
+}
+.slideshow .bigBG li {
+  flex: 0 0 100%;
+  height: 100%;
+}
+.slideshow .bigBG li.one1 {
+  background-color: rosybrown;
+}
+.slideshow .bigBG li.one2 {
+  background-color: sandybrown;
+}
+.slideshow .dot {
+  position: absolute;
+}
+.slideshow .dot li {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: sienna;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.slideshow .dot li:nth-child(1) {
+  margin: 0;
+}
+.slideshow .dot li:hover {
+  background-color: yellowgreen;
+}
+.slideshow.around .dot {
+  bottom: 5px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+}
+.slideshow.around .dot li {
+  margin-left: 18px;
+}
+.slideshow.around .dot li.current {
+  width: 34px;
+  border-radius: 100px;
+}
+.slideshow.around .dot li:nth-child(1) {
+  margin: 0;
+}
+.slideshow.upDown .bigBG {
+  flex-direction: column;
+}
+.slideshow.upDown .dot {
+  top: 50%;
+  right: 5px;
+  transform: translate(0, -50%);
+  display: flex;
+  flex-direction: column;
+}
+.slideshow.upDown .dot li {
+  margin-top: 18px;
+}
+.slideshow.upDown .dot li.current {
+  height: 34px;
+  border-radius: 100px;
+}
+.slideshow.upDown .dot li:nth-child(1) {
+  margin: 0;
+}

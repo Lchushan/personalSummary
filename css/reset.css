@@ -10,7 +10,14 @@ h2,
 h3,
 h4,
 h5,
-h6,button {
+h6,
+button,
+table,
+thead,
+tbody,
+th,
+tr,
+td {
   margin: 0;
   padding: 0;
   box-sizing: border-box;

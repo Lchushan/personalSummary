@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>轮播图</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/slideshow.css">
+</head>
+
+<body style="margin: 30px;">
+  <div class="excomple1">
+    <div class="slideshow around">
+      <ul class="bigBG">
+        <li class="one1">1<img src="" alt=""></li>
+        <li class="one2">2<img src="" alt=""></li>
+        <li class="one1">3<img src="" alt=""></li>
+        <li class="one2">4<img src="" alt=""></li>
+      </ul>
+      <ul class="dot">
+      </ul>
+    </div>
+  </div>
+
+  <div class="excomple2">
+    <div class="slideshow around">
+      <ul class="bigBG">
+        <li class="one1">1<img src="" alt=""></li>
+        <li class="one2">2<img src="" alt=""></li>
+        <li class="one1">3<img src="" alt=""></li>
+        <li class="one2">4<img src="" alt=""></li>
+      </ul>
+      <ul class="dot">
+      </ul>
+    </div>
+  </div>
+
+  <div class="excomple3">
+    <div class="slideshow upDown">
+      <ul class="bigBG">
+        <li class="one1">1<img src="" alt=""></li>
+        <li class="one2">2<img src="" alt=""></li>
+        <li class="one1">3<img src="" alt=""></li>
+        <li class="one2">4<img src="" alt=""></li>
+      </ul>
+      <ul class="dot">
+      </ul>
+    </div>
+  </div>
+
+  <div class="excomple4">
+    <div class="slideshow upDown">
+      <ul class="bigBG">
+        <li class="one1">1<img src="" alt=""></li>
+        <li class="one2">2<img src="" alt=""></li>
+        <li class="one1">3<img src="" alt=""></li>
+        <li class="one2">4<img src="" alt=""></li>
+      </ul>
+      <ul class="dot">
+      </ul>
+    </div>
+  </div>
+
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script>
+    slideshow('.excomple1', gap = true,)
+    slideshow('.excomple2', gap = false)
+    slideshow('.excomple3', gap = true, direction = 'top')
+    slideshow('.excomple4', gap = false, direction = 'top')
+
+    function slideshow(excomple1, gap = true, direction = 'left') {
+      // 动态生成小圆点
+      function createDot() {
+        // 获取图片的个数
+        // console.log($('.bigBG').children())
+        let imgList = $(excomple1 + ' .bigBG').children()
+        let dotHtml = '<li class="current"></li>'
+        for (let i = 1; i < imgList.length; i++) {
+          dotHtml += '<li></li>'
+        }
+        $(excomple1 + ' .dot').html(dotHtml)
+      }
+
+      createDot()
+      var bigBGlist = $(excomple1 + ' .bigBG li')
+      // 点击小圆点 
+      $(excomple1 + ' .dot').on("click", 'li', function () {
+        // console.log($(excomple1 + ' .dot li').index(this))
+        // console.log($(excomple1 + ' .dot li')[1])
+        $(excomple1 + ' .dot li').removeClass('current')
+        $(this).addClass('current')
+        if (gap && direction === 'left') {
+          // 左右滑动，有缝隙
+          slideshowGapT($(excomple1 + ' .dot li').index(this))
+        } else if (!gap && direction === 'left' || !gap && direction === 'top') {
+          // 左右滑动，无缝隙
+          slideshowGapF($(excomple1 + ' .dot li').index(this))
+        } else if (gap && direction === 'top') {
+          // 上下滑动，有缝隙
+          slideshowGapTT($(excomple1 + ' .dot li').index(this))
+        }
+
+      })
+
+
+      function slideshowGapT(index) {
+
+        index = index * (-1) * $('.slideshow').width()
+        $(excomple1 + ' .bigBG').css('left', index + 'px')
+      }
+
+      function slideshowGapF(index) {
+        let html = ''
+        for (let i = index; i < $(excomple1 + ' .bigBG li').length; i++) {
+          html += bigBGlist[i].outerHTML
+        }
+        for (let i = 0; i < index; i++) {
+          html += bigBGlist[i].outerHTML
+        }
+        $(excomple1 + ' .bigBG').html(html)
+      }
+
+      function slideshowGapTT(index) {
+        index = index * (-1) * $('.slideshow').height()
+        $(excomple1 + ' .bigBG').css('top', index + 'px')
+      }
+    }
+
+  </script>
+</body>
+
+</html>

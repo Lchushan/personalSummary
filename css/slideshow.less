@@ -1,0 +1,89 @@
+body > div {
+  margin-top: 20px;
+}
+
+.slideshow {
+  position: relative;
+  width: 600px;
+  overflow: hidden;
+  // border: 5px solid yellowgreen;
+  .bigBG {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 300px;
+    background-color: aquamarine;
+    transition: all 0.4s;
+    li {
+      flex: 0 0 100%;
+      height: 100%;
+    }
+    li.one1 {
+      background-color: rosybrown;
+    }
+    li.one2 {
+      background-color: sandybrown;
+    }
+  }
+
+  .dot {
+    position: absolute;
+    li {
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      background-color: sienna;
+      cursor: pointer;
+      transition: all 0.4s;
+    }
+    li:nth-child(1) {
+      margin: 0;
+    }
+    li:hover {
+      background-color: yellowgreen;
+    }
+  }  
+}
+
+.slideshow.around {
+  .dot {
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    li {
+      margin-left: 18px;
+    }
+    li.current {
+      width: 34px;
+      border-radius: 100px;
+    }
+    li:nth-child(1) {
+      margin: 0;
+    }
+  }
+}
+
+.slideshow.upDown {
+  .bigBG {
+    flex-direction: column;
+  }
+  .dot {
+    top: 50%;
+    right: 5px;
+    transform: translate(0,-50%);
+    display: flex;
+    flex-direction: column;
+    li {
+      margin-top: 18px;
+    }
+    li.current {
+      height: 34px;
+      border-radius: 100px;
+    }
+    li:nth-child(1) {
+      margin: 0;
+    }
+  }
+}
+
