@@ -14,11 +14,12 @@ var index = {
         <li><a href="#/cars">购物车</a></li>
         <li><a href="#/countDown">倒计时</a></li>
         <li><a href="#/calendar">日历</a></li>
+        <li><a href="#/slideshow">轮播图</a></li>
       </ul>`)
         $('.rightMain').html(' ')
       } else if ($(this).hasClass('componentGallery')) {
         $('.leftMain').html(`<ul>
-        <li><a href="#/shipei">PC适配单位rem设置</a></li>
+        <li><a href="#/Layout">Layout 布局</a></li>
       </ul>`)
         $('.rightMain').html(' ')
       }

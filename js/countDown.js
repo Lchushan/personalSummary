@@ -41,7 +41,7 @@ var countDown = {
         t = setTimeout(times, 1000);
         if (s <= 0) {
           s = 60;
-          clearTimeout(t);
+          clearTimeout(t); 
           $('.click60S').html(`<button class="">60</button>`)
         }
       }

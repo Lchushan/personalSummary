@@ -23,6 +23,9 @@ const routers = [{
 }, {
   name: 'slideshow',
   component: 'slideshow',
+}, {
+  name: 'polygon',
+  component: 'polygon',
 }]
 
 // 获取绝对路径

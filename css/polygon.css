@@ -1,0 +1,22 @@
+.polygon1 {
+  margin: 200px;
+}
+.polygon1 .list {
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+  transform: rotate(120deg);
+}
+.polygon1 .list .list_child {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform: rotate(-60deg);
+}
+.polygon1 .list .list_child_child {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform: rotate(-60deg);
+  background-color: red;
+}
