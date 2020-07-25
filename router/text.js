@@ -26,6 +26,12 @@ const routers = [{
 }, {
   name: 'polygon',
   component: 'polygon',
+}, {
+  name: 'scrollTop',
+  component: 'scrollTop',
+}, {
+  name: 'animation',
+  component: 'animation',
 }]
 
 // 获取绝对路径

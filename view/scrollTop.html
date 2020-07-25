@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>捕捉滚动条事件</title>
+  <link rel="stylesheet" href="../css/reset.css">
+</head>
+
+<body style="font-size: 14px;">
+  <div id="content">
+    <div id="divLeft" style="float:left;width:200px;height:300px;">
+      <div style="position:fixed">
+        <a href="#p1">这里是1</a><br />
+        <a href="#p2">这里是2</a><br />
+        <a href="#p3">这里是3</a><br />
+        <a href="#p4">这里是4</a><br />
+        <a href="#p5">这里是5</a><br />
+        <a href="#p6">这里是6</a><br />
+        <a href="#p7">这里是7</a><br />
+        <a href="#p8">这里是8</a><br />
+        <a href="#p9">这里是9</a><br />
+        <a href="#p10">这里是10</a>
+      </div>
+    </div>
+    <div id="divRight" style="float:left;">
+      <div id="p1" style="height:300px;width:100%;border:1px solid red;">这里是1</div>
+      <div id="p2" style="height:300px;width:100%;border:1px solid red;">这里是2</div>
+      <div id="p3" style="height:300px;width:100%;border:1px solid red;">这里是3</div>
+      <div id="p4" style="height:300px;width:100%;border:1px solid red;">这里是4</div>
+      <div id="p5" style="height:300px;width:100%;border:1px solid red;">这里是5</div>
+      <div id="p6" style="height:300px;width:100%;border:1px solid red;">这里是6</div>
+      <div id="p7" style="height:300px;width:100%;border:1px solid red;">这里是7</div>
+      <div id="p8" style="height:300px;width:100%;border:1px solid red;">这里是8</div>
+      <div id="p9" style="height:300px;width:100%;border:1px solid red;">这里是9</div>
+      <div id="p10" style="height:300px;width:100%;border:1px solid red;">这里是10</div>
+    </div>
+  </div>
+
+
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="../js/rem.js"></script>
+  <script>
+    function ChangeColor(index) {
+
+      var aArray = $('#divLeft a');
+      for (var i = 0; i < aArray.length; i++) {
+        if (i == parseInt(index)) {
+          aArray.eq(i).css('color', 'red')
+        } else {
+          aArray.eq(i).css('color', 'black')
+        }
+
+      }
+
+    }
+
+
+    function getScrollTop() {
+      var scrollTop = 0;
+      if (document.documentElement && document.documentElement.scrollTop) {
+        scrollTop = document.documentElement.scrollTop;
+      } else if (document.body) {
+        scrollTop = document.body.scrollTop;
+      }
+
+      var t = scrollTop / 300;
+
+      ChangeColor(t);
+
+      return scrollTop;
+    }
+    document.onscroll = function () {
+      getScrollTop()
+    }
+  </script>
+
+  <script>
+    // scrollTop 为滚动条在Y轴上的滚动距离。
+
+    // clientHeight 为内容可视区域的高度。
+
+    // scrollHeight 为内容可视区域的高度加上溢出（滚动）的距离
+
+    $(window).scroll(function () {
+      var scrollTop = $(this).scrollTop();
+      var scrollHeight = $(document).height();
+      var windowHeight = $(this).height();
+      if (scrollHeight - scrollTop - windowHeight <= 300) {
+        //当滚动条滚动到距离底部还有300px的时候加载类容
+      } else {
+        //当滚动条滚动到距离底部大于300px的时候加载类容
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>
