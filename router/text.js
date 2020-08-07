@@ -23,7 +23,10 @@ const routers = [{
 }, {
   name: 'slideshow',
   component: 'slideshow',
-}, {
+},  {
+  name: 'slideshow2',
+  component: 'slideshow2',
+},{
   name: 'polygon',
   component: 'polygon',
 }, {

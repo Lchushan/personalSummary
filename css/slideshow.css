@@ -77,3 +77,21 @@ body > div {
 .slideshow.upDown .dot li:nth-child(1) {
   margin: 0;
 }
+
+.arrow li {
+  font-size: 60px;
+  color: #fff;
+  cursor: pointer;
+}
+.arrow li:nth-child(1) {
+  position: absolute;
+  top: 50%;
+  left: 360px;
+  transform: translate(0,-50%);
+}
+.arrow li:nth-child(2) {
+  position: absolute;
+  top: 50%;
+  right: 360px;
+  transform: translate(0,-50%);
+}

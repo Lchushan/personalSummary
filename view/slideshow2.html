@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>轮播图2</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/slideshow.css">
+  <link rel="stylesheet" href="../css/slideshow2.css">
+  <style>
+    .btn_block {
+      width: 100%;
+      height: 100%;
+      border: none;
+      outline: none;
+    }
+
+    .slideshow {
+      width: 100%;
+      width: 1920px;
+    }
+
+    .slideshow .bigBG {
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body style="font-size: 16px;">
+
+  <div class="excomple2">
+    <div class="slideshow around">
+      <ul class="bigBG">
+        <li class="one1">
+          <div class="floor_00_img">
+            <div><img src="../img/line_108.png" alt=""></div>
+            <div class="floor_00_text">
+              <div>
+                <div>聚付云-易分账</div>
+                <div>为企业提供资金收付、账户管理、资金合规等一站式资金管理服务，全面提升企业中后台管理效率。</div>
+                <div><button class="btn_block">了解详情</button></div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="one2 one">
+          <div class="floor_00_img">
+            <div><img src="../img/slice_110.png" alt=""></div>
+            <div class="floor_00_text">
+              <div>聚付云-自主资金管理系统</div>
+              <div>更安全 &nbsp; / &nbsp; 更专业 &nbsp; / &nbsp; 更便捷 &nbsp; / &nbsp; 让您资金管理更放心</div>
+              <div><button class="btn_block">了解详情</button></div>
+            </div>
+          </div>
+        </li>
+        <li class="one3 one">
+          <div class="floor_00_img">
+            <div><img src="../img/line_108.png" alt=""></div>
+            <div class="floor_00_text">
+              <div>电子钱包正式上线</div>
+              <div>更安全 &nbsp; / &nbsp; 更专业 &nbsp; / &nbsp; 更便捷 &nbsp; / &nbsp; 让您支付更放心</div>
+              <div><button class="btn_block">了解详情</button></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="dot">
+      </ul>
+      <ul class="arrow">
+        <li class="left">&lt;</li>
+        <li class="right">&gt;</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script>
+    // slideshow('.excomple1', gap = true,)
+    slideshow('.excomple2', gap = false)
+    // slideshow('.excomple3', gap = true, direction = 'top')
+    // slideshow('.excomple4', gap = false, direction = 'top')
+
+    function slideshow(excomple1, gap = true, direction = 'left') {
+      // 动态生成小圆点
+      function createDot() {
+        // 获取图片的个数
+        // console.log($('.bigBG').children())
+        let imgList = $(excomple1 + ' .bigBG').children()
+        let dotHtml = '<li class="current"></li>'
+        for (let i = 1; i < imgList.length; i++) {
+          dotHtml += '<li></li>'
+        }
+        $(excomple1 + ' .dot').html(dotHtml)
+      }
+
+      createDot()
+      var bigBGlist = $(excomple1 + ' .bigBG li')
+      // 点击小圆点 
+      $(excomple1 + ' .dot').on("click", 'li', function () {
+        // console.log($(excomple1 + ' .dot li').index(this))
+        // console.log($(excomple1 + ' .dot li')[1])
+        $(excomple1 + ' .dot li').removeClass('current')
+        $(this).addClass('current')
+        console.log(this)
+        console.log($(excomple1 + ' .dot li').index(this))
+        if (gap && direction === 'left') {
+          // 左右滑动，有缝隙
+          slideshowGapT($(excomple1 + ' .dot li').index(this))
+        } else if (!gap && direction === 'left' || !gap && direction === 'top') {
+          // 左右滑动，无缝隙
+          slideshowGapF($(excomple1 + ' .dot li').index(this))
+        } else if (gap && direction === 'top') {
+          // 上下滑动，有缝隙
+          slideshowGapTT($(excomple1 + ' .dot li').index(this))
+        }
+
+      })
+
+      // 定时器，5秒转化图片
+      $(function () {
+        setInterval(function () {
+          $(".arrow .right").click()
+        },10000)//后面du的500是以毫秒为单位。
+      });
+
+      // 点击箭头
+      $('.arrow .left').on("click", function () {
+        // 获取当前的圆点的current
+        let i = $(excomple1 + ' .dot li').index($('.dot .current')[0])
+        if (i == 0) {
+          i = 2
+        } else {
+          i--
+        }
+        $(excomple1 + ' .dot li').removeClass('current')
+        $($(excomple1 + ' .dot li')[i]).addClass('current')
+        slideshowGapF(i)
+      })
+
+      $('.arrow .right').on("click", function () {
+        // 获取当前的圆点的current
+        let i = $(excomple1 + ' .dot li').index($('.dot .current')[0])
+        if (i == 2) {
+          i = 0
+        } else {
+          i++
+        }
+        $(excomple1 + ' .dot li').removeClass('current')
+        $($(excomple1 + ' .dot li')[i]).addClass('current')
+        slideshowGapF(i)
+      })
+
+      // 轮播图的变换
+      function slideshowGapT(index) {
+
+        index = index * (-1) * $('.slideshow').width()
+        $(excomple1 + ' .bigBG').css('left', index + 'px')
+      }
+
+      function slideshowGapF(index) {
+        let html = ''
+        for (let i = index; i < $(excomple1 + ' .bigBG li').length; i++) {
+          html += bigBGlist[i].outerHTML
+        }
+        for (let i = 0; i < index; i++) {
+          html += bigBGlist[i].outerHTML
+        }
+        $(excomple1 + ' .bigBG').html(html)
+      }
+
+      function slideshowGapTT(index) {
+        index = index * (-1) * $('.slideshow').height()
+        $(excomple1 + ' .bigBG').css('top', index + 'px')
+      }
+
+
+
+
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>
