@@ -38,6 +38,9 @@ const routers = [{
 }, {
   name: 'object',
   component: 'object',
+}, {
+  name: 'dialogBox',
+  component: 'dialogBox',
 }]
 
 // 获取绝对路径
