@@ -35,6 +35,9 @@ const routers = [{
 }, {
   name: 'animation',
   component: 'animation',
+}, {
+  name: 'object',
+  component: 'object',
 }]
 
 // 获取绝对路径
