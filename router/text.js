@@ -39,6 +39,9 @@ const routers = [{
   name: 'object',
   component: 'object',
 }, {
+  name: 'imgShow',
+  component: 'imgShow',
+}, {
   name: 'dialogBox',
   component: 'dialogBox',
 }]

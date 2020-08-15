@@ -1,0 +1,91 @@
+/*
+　　网上百度的，感觉”从中间到两边“的效果写的不是很好，改了一下，感觉可以了！
+*/
+<html>
+
+<head>
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+    var image;
+    var intervalId1;
+    var intervalId2;
+    var intervalId3;
+    var drawW1 = 0;
+    var canvas;
+    var context;
+    var drawLeft;
+
+    var baiyechuangItemW;
+    function init() {
+      image = new Image();
+      image.src = "../img/01.jpg";
+      canvas = document.getElementById("canvas1");
+      context = canvas.getContext("2d");
+      drawLeft = image.width / 2;
+      width = '400px'
+    }
+
+    function startLeftToRight() {
+      clearInterval(intervalId1);
+      context.clearRect(0, 0, image.width, image.height);
+      intervalId1 = setInterval("leftToRight();", 50);
+    }
+
+    function leftToRight() {
+      context.drawImage(image, 0, 0, drawW1, image.height, 0, 0, drawW1, image.height);
+      drawW1 += 2;
+      if (drawW1 > image.width) {
+        drawW1 = 0;
+        clearInterval(intervalId1);
+      }
+    }
+
+    function centerToOuter() {
+      drawW1 += 2;
+      //drawLeft-drawW1/2是左端点，drawLeft是中间， drawLeft+drawW1/2是右端点
+      context.drawImage(image, drawLeft - drawW1 / 2, 0, drawW1, image.height, drawLeft - drawW1 / 2, 0, drawW1, image.height);
+      if (drawW1 > drawLeft * 2) {
+        drawW1 = 0;
+        clearInterval(intervalId2);
+      }
+    }
+
+    function startCenterToOuter() {
+      clearInterval(intervalId2);
+      context.clearRect(0, 0, image.width, image.height);
+      intervalId2 = setInterval("centerToOuter();", 50);
+    }
+
+    function baiyechuang() {
+      for (i = 0; i < 10; i++) {
+        context.drawImage(image, baiyechuangItemW * i, 0, drawW1, image.height, baiyechuangItemW * i, 0, drawW1, image.height);
+      }
+      drawW1 += 0.2;
+      if (drawW1 > baiyechuangItemW) {
+        clearInterval(intervalId3);
+      }
+    }
+
+    function startBaiyechuang() {
+      drawW1 = 0;
+      baiyechuangItemW = image.width / 10.0;
+      clearInterval(intervalId3);
+      context.clearRect(0, 0, image.width, image.height);
+      intervalId3 = setInterval("baiyechuang();", 50);
+    }
+
+  </script>
+</head>
+
+<body onload="init();">
+  <h1><input type="button" value="从左到右装载图片" onclick="startLeftToRight();" /></h1>
+  <h1><input type="button" value="从中间到两边加载图片" onclick="startCenterToOuter();" /></h1>
+  <h1><input type="button" value="百叶窗方式装载图片" onclick="startBaiyechuang();" /></h1>
+
+  <div>
+    <canvas id="canvas1" width="400px" height="400px"></canvas>
+  </div>
+</body>
+
+</html>
