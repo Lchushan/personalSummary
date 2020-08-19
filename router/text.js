@@ -42,6 +42,9 @@ const routers = [{
   name: 'imgShow',
   component: 'imgShow',
 }, {
+  name: 'mathRandom',
+  component: 'mathRandom',
+}, {
   name: 'dialogBox',
   component: 'dialogBox',
 }]
