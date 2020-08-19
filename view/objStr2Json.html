@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>随机数据</title>
+  <link rel="stylesheet" href="../css/reset.css">
+</head>
+
+<body>
+
+
+  <script src="../js/jquery-1.7.2.min.js"></script>
+
+  <script>
+
+    var num = 'appId=wx6886a6e3865df501&timeStamp=1597799855&signType=RSA&package=prepay_id%3Dwx19091735558038c4886bb36cfd3f4b0000&nonceStr=06a1abb11f254bc181e523909971a762&paySign=CBzM0G88hzt7Erag1E0r+NV2FNsYBI/++DEe+YfmRLc3d1JW8nYdyiwoQcIhGiP5nF90gvbveuJc+Fi5SpLvugmFgdSCAS5XGkycL7xyzu3/mKNkrWWNkFaHOe7MuYqeyeczUg+2fFVtc0NCNZnjV5ouBDTHvzTJgtzWAK6SmJpdjdzZvRCQkf7qn8R83CwqVq4HfjWhFFpQTUUTPUrMOb+JfNqmZm31xWnkAEjCA4Xt4cfXN3czcdmDN6RjKdt+a06XNhBG7Joq0rVBulHuyijAbTTGk+dI/KrCPTXp7FzAFB7USZWwdShKuOg8znsTGL4Ze6CmKk/Q8Mp5YLCzwQ=='
+
+    let json = strToJson(num)
+    console.log(json)
+
+    /**
+*map转化为对象（map所有键都是字符串，可以将其转换为对象）
+*/
+    function strToJson(str) {
+      var data = str.split('&');
+      var res = {};
+      console.log(data)
+      for (var i = 0; i < data.length; i++) {
+        // var item = data[i].split('=');
+
+        // if (item.length < 3) {
+        //   var item = data[i].split('=');
+        //   // console.log(item)
+        //   res[item[0]] = item[1];
+        // } else {
+        console.log(data[i])
+        let item = [], idx
+        idx = strIndex(data[i])
+        console.log(idx)
+        item[0] = data[i].slice(0, idx)
+        item[1] = data[i].slice(+idx + 1)
+        console.log('item', item)
+        console.log('item[0]', item[0])
+        console.log('item[1]', item[1])
+        res[item[0]] = item[1];
+        // }
+      }
+      console.log(res);
+      return JSON.stringify(res)
+    }
+
+    function strIndex(str) {
+      for (let j in str) {
+        if (str.charAt(j) == '=') {
+          return idx = j
+        }
+      }
+    }
+
+  </script>
+
+
+</body>
+
+</html>

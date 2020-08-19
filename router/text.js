@@ -45,6 +45,9 @@ const routers = [{
   name: 'mathRandom',
   component: 'mathRandom',
 }, {
+  name: 'objStr2Json',
+  component: 'objStr2Json',
+}, {
   name: 'dialogBox',
   component: 'dialogBox',
 }]
